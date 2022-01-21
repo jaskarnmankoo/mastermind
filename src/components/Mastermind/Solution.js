@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const Solution = (props) => {
+export default function Solution(props) {
   let solutionPegs = [];
   let solutionClass = '';
   const isHidden = props.state.defeat && !props.state.victory ? '' : ' hidden';
@@ -8,7 +8,7 @@ export const Solution = (props) => {
   for (let i = 0; i < props.state.trueRow.length; i++) {
     solutionClass = props.state.trueRow[i];
     solutionPegs.push(
-      <div className={'color-holder ' + solutionClass} key={'s_' + i}></div>
+      <div className={'color-holder ' + solutionClass} key={'s_' + i} />
     );
   }
   return (
@@ -24,4 +24,4 @@ export const Solution = (props) => {
       </div>
     </div>
   );
-};
+}

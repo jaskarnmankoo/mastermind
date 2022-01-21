@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Colors } from './colors';
-import { Solution } from './solution';
-import { Board } from './board';
+import Board from '../Board';
+import Colors from './colors';
+import Solution from './solution';
 
 class Game extends React.Component {
   constructor(props) {

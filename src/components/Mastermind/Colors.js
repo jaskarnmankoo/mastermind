@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const Colors = (props) => {
+export default function Colors(props) {
   const allColors = props.list.map((color) => {
     const active = color === props.activeColor ? 'active' : '';
 
@@ -17,4 +17,4 @@ export const Colors = (props) => {
   });
 
   return <div className="colors">{allColors}</div>;
-};
+}
