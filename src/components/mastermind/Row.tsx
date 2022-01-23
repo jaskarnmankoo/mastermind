@@ -43,6 +43,7 @@ export default function Row({
         <>
           <h1>Attempt {activeRow + 1}</h1>
           <button
+            type="button"
             className="game-mode w-48 mx-auto"
             onClick={checkSolution}
             disabled={
@@ -90,6 +91,7 @@ export default function Row({
             {[0, 1, 2, 3].map((button, index) => (
               <React.Fragment key={`button-${index}`}>
                 <button
+                  type="button"
                   aria-label={`peg ${isActive ? currentRow[button] : ''}`}
                   className={`game-piece ${isActive ? currentRow[button] : ''}`}
                   disabled={!isActive || activePiece === currentRow[button]}

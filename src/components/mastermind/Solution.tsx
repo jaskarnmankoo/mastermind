@@ -9,6 +9,11 @@ export default function Solution({
   setDifficulty,
   solution
 }: Props): JSX.Element {
+  const resetDifficulty = React.useCallback(
+    () => setDifficulty(''),
+    [setDifficulty]
+  );
+
   return (
     <>
       <div className="flex justify-center items-center">
@@ -20,8 +25,9 @@ export default function Solution({
         ))}
       </div>
       <button
+        type="button"
         className="game-mode mx-auto w-48"
-        onClick={() => setDifficulty('')}
+        onClick={resetDifficulty}
       >
         Play again?
       </button>

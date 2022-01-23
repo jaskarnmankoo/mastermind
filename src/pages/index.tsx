@@ -47,10 +47,18 @@ export default function Home(): JSX.Element {
           <>
             <p className="text-xl text-center">Choose a difficulty level...</p>
             <div className="grid grid-cols-2">
-              <button className="game-mode" onClick={easyDifficulty}>
+              <button
+                type="button"
+                className="game-mode"
+                onClick={easyDifficulty}
+              >
                 Easy
               </button>
-              <button className="game-mode" onClick={hardDifficulty}>
+              <button
+                type="button"
+                className="game-mode"
+                onClick={hardDifficulty}
+              >
                 Hard
               </button>
             </div>

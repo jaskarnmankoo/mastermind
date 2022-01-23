@@ -62,11 +62,14 @@ export default function Mastermind({
     setActiveRow(activeRow + 1);
   }, [activeRow, currentRow, solution]);
 
+  console.log(solution.current);
+
   return (
     <>
       <div className="flex justify-center items-center">
         {pieces.current.map((piece) => (
           <button
+            type="button"
             className={`game-piece ${piece} ${
               piece === activePiece
                 ? 'border-green-600 rounded-xl border-4'
