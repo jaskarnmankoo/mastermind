@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { Link } from 'gatsby';
 
-import SearchEngineOptimization from '../components/SearchEngineOptimization';
+import SearchEngineOptimization from '../components/common/SearchEngineOptimization';
 
-export default function NotFound() {
+export default function NotFound(): JSX.Element {
   return (
     <>
       <SearchEngineOptimization title="Oops..." />
