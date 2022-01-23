@@ -71,7 +71,7 @@ export default function Mastermind({
         {pieces.current.map((piece) => (
           <button
             type="button"
-            className={`game-piece ${piece || ''} ${
+            className={`game-piece ${piece ? piece : ''} ${
               piece === activePiece
                 ? 'border-green-600 rounded-xl border-4'
                 : ''

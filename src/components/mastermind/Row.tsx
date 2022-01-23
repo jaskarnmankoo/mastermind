@@ -29,6 +29,7 @@ export default function Row({
 
   const isActive = activeRow === row;
 
+  /** Sets the piece in a Row */
   const setPiece = (index: number) => {
     const currentRowCopy = [...currentRow];
     currentRowCopy[index] = activePiece;

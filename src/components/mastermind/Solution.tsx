@@ -20,8 +20,8 @@ export default function Solution({
       <div className="flex justify-center items-center">
         {solution.current.map((piece, index) => (
           <div
-            className={`game-piece ${piece || ''}`}
-            key={`solution-${piece || ''}-${index || ''}`}
+            className={`game-piece ${piece ? piece : ''}`}
+            key={`solution-${piece ? piece : ''}-${index ? index : ''}`}
           />
         ))}
       </div>
