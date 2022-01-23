@@ -5,6 +5,7 @@ interface Props {
   solution: React.MutableRefObject<string[]>;
 }
 
+/** Renders the Mastermind solution */
 export default function Solution({
   setDifficulty,
   solution
@@ -19,8 +20,8 @@ export default function Solution({
       <div className="flex justify-center items-center">
         {solution.current.map((piece, index) => (
           <div
-            className={`game-piece ${piece}`}
-            key={`solution-${piece}-${index}`}
+            className={`game-piece ${piece || ''}`}
+            key={`solution-${piece || ''}-${index || ''}`}
           />
         ))}
       </div>

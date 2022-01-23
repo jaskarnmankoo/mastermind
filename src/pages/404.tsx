@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 
 import SearchEngineOptimization from '../components/common/SearchEngineOptimization';
 
+/** Renders this page when a route does not exist */
 export default function NotFound(): JSX.Element {
   return (
     <>

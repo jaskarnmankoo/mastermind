@@ -13,6 +13,7 @@ interface Props {
   setCurrentRow: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
+/** Renders a Row in Mastermind */
 export default function Row({
   activePiece,
   activeRow,

@@ -3,10 +3,9 @@ import * as React from 'react';
 import Mastermind from '../components/mastermind';
 import SearchEngineOptimization from '../components/common/SearchEngineOptimization';
 
-const getRandomInt = (max: number): number => {
-  return Math.floor(Math.random() * max);
-};
+import { getRandomInt } from '../utils';
 
+/** Renders the home page with difficulty selection */
 export default function Home(): JSX.Element {
   const [difficulty, setDifficulty] = React.useState('');
 
