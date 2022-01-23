@@ -21,11 +21,6 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: { siteUrl: 'https://harmankitchen.com' }
-    },
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -35,11 +30,7 @@ module.exports = {
         exclude: ['node_modules', 'bower_components', '.cache', 'public']
       }
     },
-    { resolve: 'gatsby-plugin-html-attributes', options: { lang: 'en' } },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: { policy: [{ userAgent: '*', allow: '/' }] }
-    }
+    { resolve: 'gatsby-plugin-html-attributes', options: { lang: 'en' } }
   ],
   siteMetadata: {
     title: 'Mastermind',
