@@ -36,15 +36,15 @@ export default function Mastermind({
       }
     }
 
-    for (const j in currentRowCopy) {
-      for (const k in solutionCopy) {
-        if (currentRowCopy[j] === solutionCopy[k]) {
-          hints.current[j] = 1;
-          delete currentRowCopy[j];
-          delete solutionCopy[k];
+    currentRowCopy.forEach((_row, rowIndex) => {
+      solutionCopy.forEach((_solution, solutionindex) => {
+        if (currentRowCopy[rowIndex] === solutionCopy[solutionindex]) {
+          hints.current[rowIndex] = 1;
+          delete currentRowCopy[rowIndex];
+          delete solutionCopy[solutionindex];
         }
-      }
-    }
+      });
+    });
 
     hints.current.sort((a, b) => b - a);
 
@@ -62,8 +62,6 @@ export default function Mastermind({
     setCurrentRow(['', '', '', '']);
     setActiveRow(activeRow + 1);
   }, [activeRow, currentRow, solution]);
-
-  console.log(solution.current);
 
   return (
     <>
