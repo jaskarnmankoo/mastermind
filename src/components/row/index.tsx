@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import Piece from './Piece';
+
 import { determineHintColor } from '../../utils';
 
 interface Props {
@@ -29,13 +31,6 @@ export default function Row({
 
   const isActive = activeRow === row;
 
-  /** Sets the piece in a Row */
-  const setPiece = (index: number) => {
-    const currentRowCopy = [...currentRow];
-    currentRowCopy[index] = activePiece;
-    setCurrentRow(currentRowCopy);
-  };
-
   if (previousRows.current[row]) previousButtons = previousRows.current[row];
   if (previousHints.current[row]) hints = previousHints.current[row];
 
@@ -46,7 +41,7 @@ export default function Row({
           <h1>Attempt {activeRow + 1}</h1>
           <button
             type="button"
-            className="game-mode w-48 mx-auto"
+            className="game-mode mx-auto w-48"
             onClick={checkSolution}
             disabled={
               currentRow[0] === '' ||
@@ -60,11 +55,11 @@ export default function Row({
         </>
       )}
       {hints.length !== 0 && (
-        <div className="flex justify-center items-center w-full mx-auto">
+        <div className="mx-auto flex w-full items-center justify-center">
           <p>Hints</p>&nbsp;
           {hints.map((hint, index) => (
             <span
-              className={`w-1 h-1 p-1 mx-1 border-2 border-black rounded-full dark:border-white ${determineHintColor(
+              className={`mx-1 h-1 w-1 rounded-full border-2 border-black p-1 dark:border-white ${determineHintColor(
                 hint
               )}`}
               key={`hint-${row}-${index}`}
@@ -73,11 +68,11 @@ export default function Row({
         </div>
       )}
       <div
-        className={`flex justify-center items-center w-full my-2 ${
+        className={`my-2 flex w-full items-center justify-center ${
           isActive
-            ? 'border-solid border-black rounded-lg border-2 dark:border-white'
+            ? 'rounded-lg border-2 border-solid border-black dark:border-white'
             : ''
-        } ${previousButtons.length !== 0 ? 'p-2 my-0' : 'p-8 my-2'}`}
+        } ${previousButtons.length !== 0 ? 'my-0 p-2' : 'my-2 p-8'}`}
       >
         {previousButtons.length !== 0 ? (
           <>
@@ -92,12 +87,12 @@ export default function Row({
           <>
             {[0, 1, 2, 3].map((button, index) => (
               <React.Fragment key={`button-${index}`}>
-                <button
-                  type="button"
-                  aria-label={`peg ${isActive ? currentRow[button] : ''}`}
-                  className={`game-piece ${isActive ? currentRow[button] : ''}`}
-                  disabled={!isActive || activePiece === currentRow[button]}
-                  onClick={() => setPiece(button)}
+                <Piece
+                  activePiece={activePiece}
+                  currentRow={currentRow}
+                  isActive={isActive}
+                  piece={button}
+                  setCurrentRow={setCurrentRow}
                 />
               </React.Fragment>
             ))}

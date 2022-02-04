@@ -17,7 +17,7 @@ export default function Solution({
 
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex items-center justify-center">
         {solution.current.map((piece, index) => (
           <div
             className={`game-piece ${String(piece)}`}

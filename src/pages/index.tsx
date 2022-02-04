@@ -44,7 +44,7 @@ export default function Home(): JSX.Element {
       <main className="grid grid-cols-1">
         {!difficulty ? (
           <>
-            <p className="text-xl text-center">Choose a difficulty level...</p>
+            <p className="text-center text-xl">Choose a difficulty level...</p>
             <div className="grid grid-cols-2">
               <button
                 type="button"

@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import Row from './Row';
-import Solution from './Solution';
+import Piece from './Piece';
+import Row from '../row';
+import Solution from '../solution';
 
 interface Props {
   pieces: React.MutableRefObject<string[]>;
@@ -65,47 +66,41 @@ export default function Mastermind({
 
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex items-center justify-center">
         {pieces.current.map((piece) => (
-          <button
-            type="button"
-            className={`game-piece ${String(piece)} ${
-              piece === activePiece
-                ? 'border-green-600 rounded-xl border-4'
-                : ''
-            }`}
-            aria-label={piece}
-            key={piece}
-            onClick={() => setActivePiece(piece)}
-          />
+          <React.Fragment key={piece}>
+            <Piece
+              activePiece={activePiece}
+              piece={piece}
+              setActivePiece={setActivePiece}
+            />
+          </React.Fragment>
         ))}
       </div>
       {!won ? (
-        <>
-          {activeRow !== 10 ? (
-            <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3">
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((row, index) => (
-                <React.Fragment key={`row-${index}`}>
-                  <Row
-                    activePiece={activePiece}
-                    activeRow={activeRow}
-                    checkSolution={checkSolution}
-                    currentRow={currentRow}
-                    previousHints={previousHints}
-                    previousRows={previousRows}
-                    row={row}
-                    setCurrentRow={setCurrentRow}
-                  />
-                </React.Fragment>
-              ))}
-            </div>
-          ) : (
-            <>
-              <p>You lost! The solution was:</p>
-              <Solution setDifficulty={setDifficulty} solution={solution} />
-            </>
-          )}
-        </>
+        activeRow !== 10 ? (
+          <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3">
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((row, index) => (
+              <React.Fragment key={`row-${index}`}>
+                <Row
+                  activePiece={activePiece}
+                  activeRow={activeRow}
+                  checkSolution={checkSolution}
+                  currentRow={currentRow}
+                  previousHints={previousHints}
+                  previousRows={previousRows}
+                  row={row}
+                  setCurrentRow={setCurrentRow}
+                />
+              </React.Fragment>
+            ))}
+          </div>
+        ) : (
+          <>
+            <p>You lost! The solution was:</p>
+            <Solution setDifficulty={setDifficulty} solution={solution} />
+          </>
+        )
       ) : (
         <>
           <p>You won! The solution was:</p>
